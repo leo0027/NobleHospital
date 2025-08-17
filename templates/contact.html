@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noble Hospital - Contact Us</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a separate CSS file -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+ 
+        header {
+            background: #0056b3;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+ 
+        header img {
+            width: 1210px;
+            height: 400px;
+            display: block;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        header nav {
+            text-align: right;
+            margin-right: 154px;
+            /* Align navigation links to the right */
+        }
+ 
+        header nav ul {
+            list-style: none;
+            display: inline;
+            /* Display the list horizontally */
+        }
+ 
+        header nav ul li {
+            display: inline;
+            margin-left: 50px;
+            /* Adjust margin between navigation items */
+        }
+ 
+        header nav ul li:first-child {
+            margin-left: 0;
+            /* Remove margin for the first navigation item */
+        }
+ 
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            /* Add padding to make buttons larger */
+            border-radius: 5px;
+            /* Add rounded corners */
+            background-color: #0056b3;
+            /* Set background color */
+            transition: background-color 0.3s ease;
+        }
+ 
+        header nav ul li a:hover {
+            background-color: #004080;
+            /* Darken background color on hover */
+        }
+ 
+        /* Container styles */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+ 
+        /* Form styles */
+        form {
+            margin-top: 20px;
+        }
+ 
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+ 
+        input[type="submit"] {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+ 
+        input[type="submit"]:hover {
+            background-color: #004080;
+        }
+ 
+        /* Placeholder color for Firefox */
+        input[type="email"]::-webkit-input-placeholder,
+        input[type="password"]::-webkit-input-placeholder {
+            color: #999;
+        }
+ 
+        /* Placeholder color for other browsers */
+        input[type="email"]:-moz-placeholder,
+        input[type="password"]:-moz-placeholder {
+            color: #999;
+        }
+ 
+        /* Placeholder color for IE */
+        input[type="email"]::-ms-input-placeholder,
+        input[type="password"]::-ms-input-placeholder {
+            color: #999;
+        }
+ 
+        /* Autofill styles */
+        input[type="email"]:-webkit-autofill,
+        input[type="password"]:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 1000px white inset;
+        }
+ 
+        /* Footer styles */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #0056b3;
+            color: #fff;
+        }
+ 
+        footer p {
+            margin: 0;
+        }
+ 
+        #contact {
+            background-color: #f9f9f9; /* Set background color for contact section */
+            padding: 2rem 0; /* Add padding to top and bottom */
+        }
+ 
+        #contact .container {
+            text-align: center; /* Center align content */
+        }
+ 
+        #contact h2 {
+            color: #0056b3; /* Set text color for heading */
+            margin-bottom: 1.5rem; /* Add margin bottom */
+        }
+ 
+        #contact p {
+            color: #333; /* Set text color */
+            font-size: 18px; /* Set font size */
+            line-height: 1.6; /* Set line height */
+            margin-bottom: 2rem; /* Add margin bottom */
+        }
+ 
+        /* Style contact form */
+        .contact-form {
+            max-width: 600px; /* Set maximum width for the form */
+            margin: 0 auto; /* Center the form horizontally */
+            background-color: #fff; /* Set background color */
+            padding: 20px; /* Add padding */
+            border-radius: 5px; /* Add border radius */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+ 
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%; /* Set input width to 100% */
+            padding: 10px; /* Add padding */
+            margin-bottom: 10px; /* Add margin bottom */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+            box-sizing: border-box; /* Include padding and border in width calculation */
+        }
+ 
+        .contact-form textarea {
+            height: 150px; /* Set height for textarea */
+        }
+ 
+        .contact-form input[type="submit"] {
+            background-color: #0056b3; /* Set background color */
+            color: #fff; /* Set text color */
+            border: none; /* Remove border */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s ease; /* Add transition effect */
+        }
+ 
+        .contact-form input[type="submit"]:hover {
+            background-color: #004080; /* Darken background color on hover */
+        }
+    </style>
+</head>
+ 
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/noble-logo.png') }}" alt="Noble Hospital Logo">
+        <br>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Feel free to reach out to us for any inquiries or to book appointments. Our team is here to assist you.</p>
+    
+            <div class="contact-info">
+                <p><strong>Address:</strong> 123 Noble Street, City, Country</p>
+                <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                <p><strong>Email:</strong> info@noblehospital.com</p>
+            </div>
+    
+            <div class="contact-form">
+                <h3>Send us a message</h3>
+                <form action="{{ url_for('contact') }}" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <input type="submit" value="Send Message">
+                </form>
+            </div>
+        </div>
+    </section>
+ 
+    <footer>
+        <p>&copy; 2024 Noble Hospital</p>
+    </footer>
+</body>
+ 
+</html>

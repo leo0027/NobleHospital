@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Noble Hospital - Book Appointment</title>
+    <style>
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #ffffffcc;
+            padding: 40px;
+            border-radius: 20px;
+            width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-30px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff4b5c;
+            margin-bottom: 30px;
+            font-size: 26px;
+            letter-spacing: 1px;
+            animation: bounce 1s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, select, textarea, button {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff4b5c;
+            box-shadow: 0 0 10px rgba(255,75,92,0.3);
+            transform: scale(1.02);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            background: #ff4b5c;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background: #ff758f;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,75,92,0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Book Appointment</h1>
+    <form action="{{ url_for('appointment') }}" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <select name="doctor" required>
+            <option value="" disabled selected>Select Doctor</option>
+            <option value="Dr. Smith">Dr. Smith</option>
+            <option value="Dr. Johnson">Dr. Johnson</option>
+            <option value="Dr. Williams">Dr. Williams</option>
+        </select>
+        <input type="date" name="date" required>
+        <textarea name="message" rows="4" placeholder="Additional Message"></textarea>
+        <button type="submit">Book Appointment</button>
+    </form>
+</div>
+
+</body>
+</html>

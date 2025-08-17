@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noble Hospital</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+ 
+        header {
+            background: #0056b3;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+ 
+        header img {
+            width: 1210px;
+            height: 400px;
+            display: block;
+            margin: 0 auto;
+        }
+ 
+        header nav {
+            text-align: right;
+            /* Align navigation links to the right */
+        }
+ 
+        header nav ul {
+            list-style: none;
+            display: inline;
+            /* Display the list horizontally */
+        }
+ 
+        header nav ul li {
+            display: inline;
+            margin-left: 20px;
+            /* Adjust margin between navigation items */
+        }
+ 
+        header nav ul li:first-child {
+            margin-left: 0;
+            /* Remove margin for the first navigation item */
+        }
+ 
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            /* Add padding to make buttons larger */
+            border-radius: 5px;
+            /* Add rounded corners */
+            background-color: #0056b3;
+            /* Set background color */
+            transition: background-color 0.3s ease;
+        }
+ 
+        header nav ul li a:hover {
+            background-color: #004080;
+            /* Darken background color on hover */
+        }
+ 
+ 
+        section {
+            padding: 2rem 0;
+        }
+ 
+        h1,
+        h2,
+        h3 {
+            color: #0056b3;
+        }
+ 
+        .button {
+            display: inline-block;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+ 
+        .button:hover {
+            background-color: #004080;
+        }
+ 
+        footer {
+            background: #0056b3;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+ 
+        footer p {
+            margin: 0;
+        }
+ 
+        .container {
+            width: 80%;
+            margin: auto;
+            position: relative;
+        }
+ 
+        #about {
+            background-size: cover;
+            background-position: center;
+            padding: 10%;
+            position: relative;
+            overflow: hidden;
+            /* Add padding to create space around the content */
+        }
+ 
+        #about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            /* Apply the fade-in animation */
+        }
+ 
+        #about:hover:before {
+            opacity: 0.7;
+            /* Keep the opacity constant on hover */
+        }
+ 
+        .about-content {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Faded background color */
+            padding: 30px;
+            border-radius: 10px;
+            animation: fadeInUp 1s ease;
+            /* Fade-in animation */
+        }
+ 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                /* Start with opacity 0 */
+            }
+ 
+            to {
+                opacity: 0.7;
+                /* Fade in to the desired opacity */
+            }
+        }
+ 
+        #about h2 {
+            color: #0056b3;
+            /* Text color */
+            text-align: center;
+            margin-bottom: 30px;
+            /* Add space between heading and paragraph */
+        }
+ 
+        #about p {
+            color: #333;
+            /* Text color */
+            font-size: 18px;
+            /* Increase font size */
+            line-height: 1.6;
+            /* Increase line height */
+        }
+ 
+        .doctor-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+ 
+        .doctor {
+            flex: 1 1 calc(33.33% - 20px);
+            /* Each doctor takes up 33.33% of the container width minus margin */
+            margin-right: 20px;
+            /* Add space between doctors */
+            margin-bottom: 20px;
+            /* Add space below each row */
+        }
+ 
+        .doctor img {
+            width: 100%;
+            height: auto;
+        }
+ 
+        .doctor h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+ 
+        .doctor p {
+            text-align: center;
+            color: #666;
+        }
+ 
+        .appointment-form {
+            margin-top: 40px;
+            /* Add space between doctors and form */
+        }
+ 
+        .appointment-form form {
+            max-width: 600px;
+            /* Set maximum width for the form */
+            margin: 0 auto;
+            /* Center the form horizontally */
+        }
+ 
+        .appointment-form input,
+        .appointment-form select,
+        .appointment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+ 
+        .appointment-form textarea {
+            height: 150px;
+        }
+ 
+        .appointment-form input[type="submit"] {
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+ 
+        .appointment-form input[type="submit"]:hover {
+            background-color: #004080;
+        }
+    </style>
+</head>
+ 
+<body>
+    <header>
+        <div class="container">
+        <img src="{{ url_for('static', filename='images/noble-logo.png') }}" alt="Noble Hospital Logo">
+            <br>
+            <nav>
+                <ul>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+ 
+    <section id="home">
+        <div class="container">
+            <h1>Welcome to Noble Hospital</h1>
+            <p>We care for you like family.</p>
+        </div>
+    </section>
+ 
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Noble Hospital has been serving our community for over 50 years. We are a leading healthcare provider
+                known for our state-of-the-art facilities, expert medical staff, and commitment to patient-centered
+                care.</p>
+        </div>
+    </section>
+ 
+    <section id="doctors">
+        <div class="container">
+            <h2>Our Doctors</h2>
+            <div class="doctor-row">
+                <div class="doctor">
+                    <img src="{{ url_for('static', filename='images/doctor1.jpg') }}" alt="doctor1">
+                    <h3>Dr. John Smith</h3>
+                    <p>Specialization: Cardiology<br>Experience: 20 years</p>
+                </div>
+                <div class="doctor">
+                    <img src="{{ url_for('static', filename='images/doctor2.jpg') }}" alt="doctor2">
+                    <h3>Dr. Emily Johnson</h3>
+                    <p>Specialization: Pediatrics<br>Experience: 15 years</p>
+                </div>
+                <div class="doctor">
+                    <img src="{{ url_for('static', filename='images/doctor3.jpg') }}" alt="doctor3">
+                    <h3>Dr. Michael Brown</h3>
+                    <p>Specialization: Orthopedics<br>Experience: 10 years</p>
+                </div>
+                <div class="doctor">
+                    <img src="{{ url_for('static', filename='images/doctor4.jpg') }}" alt="doctor4">
+                    <h3>Dr. Sarah Williams</h3>
+                    <p>Specialization: Dermatology<br>Experience: 8 years</p>
+                </div>
+                <div class="doctor">
+                    <img src="{{ url_for('static', filename='images/doctor5.jpg') }}" alt="doctor5">
+                    <h3>Dr. David Lee</h3>
+                    <p>Specialization: Neurology<br>Experience: 9 years</p>
+                </div>
+                <div class="doctor">
+                    <img src="{{ url_for('static', filename='images/doctor6.jpg') }}" alt="doctor6">
+                    <h3>Dr. Jennifer Garcia</h3>
+                    <p>Specialization: Gynecology<br>Experience: 7 years</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br>
+ 
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Noble Hospital</p>
+        </div>
+    </footer>
+</body>
+ 
+</html>
