@@ -44,11 +44,11 @@ CREATE TABLE IF NOT EXISTS contacts (
 )
 """)
 
-# -------------------- ROUTES --------------------
+# -------------------- ROUTES ---------------------
 
 @app.route('/')
 def home():
-    return render_template('noble_hospital.html')
+    return render_template('index.html')
 
 # ---------------- Registration ----------------
 @app.route('/register', methods=['GET', 'POST'])
