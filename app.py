@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
 # -------------------- DATABASE --------------------
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Saksham9100",
-    database="hospital"
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_NAME"),
+    port=int(os.getenv("DB_PORT", 3306))
 )
 mycursor = mydb.cursor()
 
